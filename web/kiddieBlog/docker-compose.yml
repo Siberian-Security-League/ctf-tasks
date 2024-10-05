@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+        task:
+                restart: always
+                build: .
+                ports:
+                        - "8081:8081/tcp"
+                deploy:
+                        resources:
+                                limits:
+                                        cpus: '0.4'
+                                        memory: 128M
+                                reservations:
+                                        cpus: '0.2'
+                                        memory: 64M

@@ -1,0 +1,35 @@
+name: "kiddieBlog"
+author: "@RegularITCat"
+category: web
+description: "[@RegularITCat](https://t.me/RegularITCat)<br><br>Еу!<br><br>чек ит аут, очередной скрипт кидди, думающий что он крутой хакер, сделал свой блог. Как думаешь, расковыряем?"
+value: 100
+type: dynamic
+
+extra:
+    initial: 1000
+    decay: 10
+    minimum: 100
+
+flags:
+    - SSL_CTF{damn_br0_wanna_hackThingsWithMeX}
+
+connection_info: http://tasks.ssl.nsib.ru:8081/
+image: .
+
+hints:
+    - {
+        content: "О, Апач, норм.",
+        cost: 31337
+    }
+    - {
+        content: "Ну и дичь он конечно пишет... Хотя, пост Tired интересный",
+        cost: 31337
+    }
+    - {
+        content: "Зачекайка свеженькие proof of concept",
+        cost: 31337
+    }
+
+state: hidden
+
+version: "0.1"
