@@ -1,0 +1,26 @@
+name: "Minecraft-task"
+author: "@angrydish; @bumbuker"
+category: misc
+description: "Пока вы решаете таски, админы решили немного развлечься и пройти майнкрафт не на самых новых версиях (1.15.2). Ваша задача не уронить сервак."
+value: 100
+type: dynamic
+
+image: .
+
+extra:
+    initial: 1000
+    decay: 10
+    minimum: 100
+
+connection_info: connect via minecraft tasks.ssl.nsib.ru:25565
+
+flags:
+    - SSL_CTF{up4l_v574v41_v574v4l_up41}
+
+hints:
+    - {
+        content: "Админы всегда закрывали назойливое уведомление об обновлении java, и теперь у них стоит очень древняя уязвимая версия. Говорят, там что-то связанное с логгером...",
+        cost: 750
+    }
+
+version: "0.1"

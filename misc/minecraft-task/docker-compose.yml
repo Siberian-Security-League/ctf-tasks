@@ -1,0 +1,43 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:java8
+    container_name: minecraft-paper
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      ONLINE_MODE: "FALSE"
+      VERSION: "1.15.2"
+      PAPERBUILD: "63"
+      ENABLE_RCON: "FALSE"
+    ports:
+      - "25565:25565"
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        limits:
+          cpus: "2.5"      # Ограничить использование до 1 ядра
+          memory: "2G"
+    volumes:
+      - ./data/:/data/
+    restart: unless-stopped
+
+  task:
+    image: cr.yandex/crphctulkbkhd4g2sb8i/minecraft-task:latest
+    build: .
+    container_name: server_ldap
+    volumes:
+      - .:/app
+      - ./data/:/app/data/
+    environment:
+      FLAG: "SSL_CTF{up4l_v574v41_v574v4l_up41}"
+      PYTHONUNBUFFERED: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"      # Ограничить использование до 1 ядра
+          memory: "1G"
+    network_mode: "host"
+    depends_on:
+      minecraft:
+        condition: service_healthy
